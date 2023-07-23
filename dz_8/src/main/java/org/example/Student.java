@@ -2,19 +2,20 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Student {
     final private int uniqueStudentId;
     final private String studentName;
     final private String studentSurname;
 
+
     public Student(int uniqueStudentId, String studentName, String studentSurname) {
         this.uniqueStudentId = uniqueStudentId;
         this.studentName = studentName;
         this.studentSurname = studentSurname;
+
     }
 
-    public class StudentsGroup {
+     public class StudentsGroup {
         private Student classMonitor;
         private final List<Student> studentsList = new ArrayList<>();
         private final List<String> tasksList = new ArrayList<>();
@@ -24,9 +25,9 @@ public class Student {
             this.studentsList.add(classMonitor);
         }
 
-        public void changeMonitor(Student classMonitor) {
-            if (studentsList.contains(classMonitor)) {
-                ;
+        public void changeMonitor(Student student) {
+            if (studentsList.contains(student)) {
+                student = classMonitor ;
             }
         }
 
@@ -44,11 +45,10 @@ public class Student {
         public void addTask(String task) {
             this.tasksList.add(task);
         }
-        public void completeTask(int studentId, String task) {
+        public void completeTask(int uniqueStudentId, String task) {
             if (tasksList.contains(task)) {
                 tasksList.remove(task);
             }
-
 
         }
 
